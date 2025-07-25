@@ -1,0 +1,48 @@
+{
+  "name": "@mono-test/shared-ui",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "sourceRoot": "libs/shared-ui/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/shared-ui/dist",
+          "main": "libs/shared-ui/src/index.ts",
+          "tsConfig": "libs/shared-ui/tsconfig.lib.json",
+          "skipTypeCheck": true,
+          "stripLeadingPaths": true
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@swc/helpers": "~0.5.11",
+    "react": "19.0.0",
+    "@radix-ui/react-slot": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "tailwind-merge": "*",
+    "tailwindcss-animate": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}

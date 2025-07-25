@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./apps/mono-1"
+    },
+    {
+      "path": "./libs/shared-ui"
     }
   ]
 }
